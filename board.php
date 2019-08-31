@@ -19,25 +19,13 @@ $data = $proc->getData();
     <section class="main">
       <h1><?php echo $data['select_name'] ?></h1>
       <div class="board-container">
-        <h2>メッセージ</h2>
-        <table>
-          <tr style="border-left-style: hidden; border-top-style: hidden; border-right-style: hidden;">
-            <td><i class="far fa-circle fa-5x icon-color"></i></td>
-            <td><i class="fas fa-times fa-5x icon-color"></i></i></td>
-            <td><i class="far fa-circle fa-5x icon-color"></a></td>
-          </tr>
-          <tr style="border-left-style: hidden; border-right-style: hidden;">
-            <td><i class="fas fa-dog fa-5x icon-color"></i></i></td>
-            <td><i class="fas fa-cat fa-5x icon-color"></i></i></td>
-            <td><i class="fas fa-dog fa-5x icon-color"></td>
-          </tr>
-          <tr style="border-left-style: hidden; border-bottom-style: hidden; border-right-style: hidden;">
-            <td><i class="fas fa-burn fa-5x icon-color"></i></td>
-            <td><i class="fas fa-bomb fa-5x icon-color"></i></td>
-            <td><i class="fas fa-burn fa-5x icon-color"></td>
-          </tr>
-        </table>
+        <h2 class="js-message">開始！</h2>
+        <?php $data['board']->createBoard(); ?>
       </div>
     </section>
+
+    <script src="common/vendor/jquery-3.4.1.min.js"></script>
+    <script src="common/common.js"></script>
+
   </body>
 </html>

@@ -6,36 +6,91 @@ require 'gameParts.php';
 class BoardPage extends AbstractPage
 {
   protected function main(){
-    //GETパラメータでアイコン情報を取得
+    session_start();
+
+    //アイコン選択情報を取得
     $icon_type = $_GET['type'];
-    $icon_color = '#AAAAAA';
+
+    //ボードを作る
+    $board = new Board($icon_type);
+    $this->data['board'] = $board;
 
     //アイコンを作る
     switch ($icon_type){
       case 'circle-cross':
-        $playFirstIcon = new RotateIcon('Circle', $icon_color);
-        $drawFirstIcon = new RotateIcon('Cross', $icon_color);
+        $playFirstIcon = new RotateIcon('far fa-circle', 'Circle'); //◯アイコン
+        $drawFirstIcon = new RotateIcon('fas fa-times', 'Cross');  //×アイコン
         break;
       case 'dog-cat':
-        $playFirstIcon = new RotateIcon('Dog', $icon_color);
-        $drawFirstIcon = new RotateIcon('Cat', $icon_color);
+        $playFirstIcon = new RotateIcon('fas fa-dog', 'Dog'); //犬アイコン
+        $drawFirstIcon = new RotateIcon('fas fa-cat', 'Cat'); //猫アイコン
         break;
       case 'bomb-burn':
-        $playFirstIcon = new RotateIcon('Bomb', $icon_color);
-        $drawFirstIcon = new RotateIcon('Burn', $icon_color);
+        $playFirstIcon = new RotateIcon('fas fa-bomb', 'Bomb');  //爆弾アイコン
+        $drawFirstIcon = new RotateIcon('fas fa-burn', 'Burn');  //炎アイコン
         break;
     }
-    
-    //ボードを作る
-    $board = new Board($_GET['type']);
-    $data['board'] = $board;
 
-    $this->data['select_name'] = $board->getBoardName();
+    $this->data['playFirstIcon'] = $playFirstIcon;
+    $this->data['drawFirstIcon'] = $drawFirstIcon;
+
+    $_SESSION['play'] = $playFirstIcon;
+    $_SESSION['draw'] = $drawFirstIcon;
   }
 }
 
-Class Judge{
-  
-}
+//判定クラス
+class Judge
+{  
+  //3つの値が同じであれば、その値を返す(空文字3つならfalse)
+  private static function judgeLine($line){
+    if(!in_array('', $line, true)){
+      $compress_line = array_unique($line);
+      if(count($compress_line) === 1){
+        return $compress_line;
+      }  
+    }
+    return false;
+  }
 
+  //判定する
+  public static function judgeGame($boardInfo){
+    //上の行
+    $result = Judge::judgeLine(array_slice($boardInfo, 0, 3));
+    //真ん中の行
+    if(!$result){
+      $result = Judge::judgeLine(array_slice($boardInfo, 3, 3));
+    }
+    //下の行
+    if(!$result){
+      $result = Judge::judgeLine(array_slice($boardInfo, 6, 3));
+    }
+    //左の列
+    if(!$result){
+      $line = [$boardInfo[0], $boardInfo[3], $boardInfo[6]];
+      $result = Judge::judgeLine($line);
+    }
+    //真ん中の列
+    if(!$result){
+      $line = [$boardInfo[1], $boardInfo[4], $boardInfo[7]];
+      $result = Judge::judgeLine($line);
+    }
+    //右の列
+    if(!$result){
+      $line = [$boardInfo[2], $boardInfo[5], $boardInfo[8]];
+      $result = Judge::judgeLine($line);
+    }
+    //左上から右下
+    if(!$result){
+      $line = [$boardInfo[0], $boardInfo[4], $boardInfo[8]];
+      $result = Judge::judgeLine($line);
+    }
+    //左下から右上
+    if(!$result){
+      $line = [$boardInfo[2], $boardInfo[4], $boardInfo[6]];
+      $result = Judge::judgeLine($line);
+    }
+    return $result;
+  }
+}
 ?>

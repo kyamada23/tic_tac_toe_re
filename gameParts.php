@@ -33,21 +33,21 @@ Class Board{
   }
 
   public function createBoard(){
-    echo '<table>';
+    echo '<table value="play">';
     echo '  <tr style="border-left-style: hidden; border-top-style: hidden; border-right-style: hidden;">';
-    echo '  <td><i class="far fa-circle fa-5x icon-color"></i></td>';
-    echo '  <td><i class="fas fa-times fa-5x icon-color"></i></i></td>';
-    echo '  <td><i class="far fa-circle fa-5x icon-color"></a></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
     echo '</tr>';
     echo '<tr style="border-left-style: hidden; border-right-style: hidden;">';
-    echo '  <td><i class="fas fa-dog fa-5x icon-color"></i></i></td>';
-    echo '  <td><i class="fas fa-cat fa-5x icon-color"></i></i></td>';
-    echo '  <td><i class="fas fa-dog fa-5x icon-color"></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
     echo '</tr>';
     echo '<tr style="border-left-style: hidden; border-bottom-style: hidden; border-right-style: hidden;">';
-    echo '  <td><i class="fas fa-burn fa-5x icon-color"></i></td>';
-    echo '  <td><i class="fas fa-bomb fa-5x icon-color"></i></td>';
-    echo '  <td><i class="fas fa-burn fa-5x icon-color"></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
     echo '</tr>';
     echo '</table>';
   }
@@ -56,25 +56,41 @@ Class Board{
 //アイコン
 abstract class Icon{
   protected $icon;
+  protected $icon_name;
   protected $icon_color;
+  protected $icon_size;
 
-  public function __construct($icon, $color)
+  public function __construct($icon, $name, $color = '#AAAAAA', $size = 'fa-5x')
   {
     $this->setIcon($icon);
+    $this->setIconName($name);
     $this->setIconColor($color);
+    $this->setIconSize($size);
   }
 
   public function setIcon($icon){
     $this->icon = $icon;
   }
+  public function setIconName($name){
+    $this->icon_name = $name;
+  }
   public function setIconColor($color){
     $this->icon_color = $color;
+  }
+  public function setIconSize($size){
+    $this->icon_size = $size;
   }
   public function getIcon(){
     return $this->icon;
   }
+  public function getIconName(){
+    return $this->icon_name;
+  }
   public function getIconColor(){
     return $this->icon_color;
+  }
+  public function getIconSize(){
+    return $this->icon_size;
   }
 
   //勝利の舞
