@@ -8,6 +8,17 @@ class BoardPage extends AbstractPage
   protected function main(){
     session_start();
 
+    if(!empty($_POST)){
+      if(isset($_POST['back'])){
+        header("Location:index.php");
+        $_POST = array();
+        exit;
+      }elseif(isset($_POST['reset'])){
+        //初期化
+        $_POST = array();
+      }
+    }
+
     //アイコン選択情報を取得
     $icon_type = $_GET['type'];
 

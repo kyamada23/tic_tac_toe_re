@@ -17,11 +17,15 @@ $data = $proc->getData();
   </head>
   <body>
     <section class="main">
-      <h1><?php echo $data['select_name'] ?></h1>
+      <h1><?php echo $data['board']->getBoardName() ?></h1>
       <div class="board-container">
         <h2 class="js-message">開始！</h2>
         <?php $data['board']->createBoard(); ?>
       </div>
+      <form class="form-container" method="post">
+        <input type="submit" value="リセット" class="button" name="reset">
+        <input type="submit" value="TOPページに戻る" class="button" name="back">
+      </form>
     </section>
 
     <script src="common/vendor/jquery-3.4.1.min.js"></script>

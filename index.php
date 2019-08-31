@@ -22,7 +22,7 @@ $data = $proc->getData();
         <h2>選んでください！</h2>
         <ul>
           <li>
-            <input type="radio" id="f-option" name="board-type" value="circle-cross">
+            <input type="radio" id="f-option" name="board-type" value="circle-cross" checked="checked">
             <label for="f-option">◯ ❌</label>
             <div class="check"></div>
           </li>
