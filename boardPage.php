@@ -29,7 +29,7 @@ class BoardPage extends AbstractPage
     //アイコンを作る
     switch ($icon_type){
       case 'circle-cross':
-        $playFirstIcon = new RotateIcon('far fa-circle', 'Circle'); //◯アイコン
+        $playFirstIcon = new FlashIcon('far fa-circle', 'Circle'); //◯アイコン
         $drawFirstIcon = new RotateIcon('fas fa-times', 'Cross');  //×アイコン
         break;
       case 'dog-cat':
@@ -37,8 +37,8 @@ class BoardPage extends AbstractPage
         $drawFirstIcon = new RotateIcon('fas fa-cat', 'Cat'); //猫アイコン
         break;
       case 'bomb-burn':
-        $playFirstIcon = new RotateIcon('fas fa-bomb', 'Bomb');  //爆弾アイコン
-        $drawFirstIcon = new RotateIcon('fas fa-burn', 'Burn');  //炎アイコン
+        $playFirstIcon = new FlashIcon('fas fa-bomb', 'Bomb');  //爆弾アイコン
+        $drawFirstIcon = new FlashIcon('fas fa-burn', 'Burn');  //炎アイコン
         break;
     }
 

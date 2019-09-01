@@ -152,3 +152,27 @@ table td{
 .icon-color{
   color: #AAAAAA;
 }
+
+/* 勝利のアニメーション */
+.flash{
+  animation: flash 1s ease infinite alternate;
+}
+@keyframes flash {
+  0% {
+    opacity: 0.5;
+    color: #AAAAAA;
+  }
+  100%{
+    opacity: 1;
+    color:#0DFF92;
+  }
+}
+.rotate {
+  display: inline-block;
+  animation: r1 2s linear infinite;
+  color:#0DFF92;
+}
+@keyframes r1 {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -13,7 +13,7 @@ $(function(){
       var square_array = [];
 
       if($data.val() === ''　&& (turn !== 'finish')){
-        $data.val(turn);
+        $data.attr("class", turn);
 
         if(turn === 'play'){
           next_turn = 'draw';
@@ -22,7 +22,7 @@ $(function(){
         }
 
         $.each($table.find('data'), function(i, val){
-          square_array.push(val.value);
+          square_array.push($(val).attr("class"));
         }); 
 
         $.ajax({
@@ -41,7 +41,12 @@ $(function(){
             //メッセージを書き換える（勝ち、引き分け）
             $message.text(data['name'] + ' の勝ちです！');
 
-            //勝負が決まっていない時の処理
+            //勝ったアイコンにアニメーション付加
+            $.each($table.find('.' + turn), function(i, val){
+              $(val).next('i').addClass(data['dance']);
+            });
+
+          //勝負が決まっていない時の処理
           }else{
             //手番更新
             $table.attr('value', next_turn);

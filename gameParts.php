@@ -35,19 +35,19 @@ Class Board{
   public function createBoard(){
     echo '<table value="play">';
     echo '  <tr style="border-left-style: hidden; border-top-style: hidden; border-right-style: hidden;">';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
     echo '</tr>';
     echo '<tr style="border-left-style: hidden; border-right-style: hidden;">';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
     echo '</tr>';
     echo '<tr style="border-left-style: hidden; border-bottom-style: hidden; border-right-style: hidden;">';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
-    echo '  <td class="js-click-square"><data value=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
+    echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
     echo '</tr>';
     echo '</table>';
   }
@@ -101,14 +101,16 @@ abstract class Icon{
 Class FlashIcon extends Icon{
   public function victoryDance()
   {
-    //アイコンを点滅させる
+    //点滅させるcss
+    return 'flash';
   }
 }
 //勝利時に回転するアイコン
 Class RotateIcon extends Icon{
   public function victoryDance()
   {
-    //アイコンを点滅させる
+    //回転するcss
+    return 'rotate';
   }
 }
 
