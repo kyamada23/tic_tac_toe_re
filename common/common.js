@@ -39,12 +39,16 @@ $(function(){
             $table.attr('value', 'finish');
             
             //メッセージを書き換える（勝ち、引き分け）
-            $message.text(data['name'] + ' の勝ちです！');
+            if(data['judge'] === 'tie'){
+              $message.text('引き分けです！');
+            }else{
+              $message.text(data['name'] + ' の勝ちです！');
 
-            //勝ったアイコンにアニメーション付加
-            $.each($table.find('.' + turn), function(i, val){
-              $(val).next('i').addClass(data['dance']);
-            });
+              //勝ったアイコンにアニメーション付加
+              $.each($table.find('.' + turn), function(i, val){
+                $(val).next('i').addClass(data['dance']);
+              });
+            }
 
           //勝負が決まっていない時の処理
           }else{

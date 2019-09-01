@@ -101,6 +101,12 @@ class Judge
       $line = [$boardInfo[2], $boardInfo[4], $boardInfo[6]];
       $result = Judge::judgeLine($line);
     }
+    //引き分け判定
+    if(!$result){
+      if(!in_array('', $boardInfo, true)){
+        $result = 'tie';
+      }
+    }
     return $result;
   }
 }

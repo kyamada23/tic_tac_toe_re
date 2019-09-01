@@ -23,17 +23,17 @@ $data = $proc->getData();
         <ul>
           <li>
             <input type="radio" id="f-option" name="board-type" value="circle-cross" checked="checked">
-            <label for="f-option">◯ ❌</label>
+            <label for="f-option">Circle & Cross</label>
             <div class="check"></div>
           </li>
           <li>
             <input type="radio" id="s-option" name="board-type" value="dog-cat">
-            <label for="s-option">DOG & CAT</label>
+            <label for="s-option">Dog & Cat</label>
             <div class="check"><div class="inside"></div></div>
           </li>
           <li>
             <input type="radio" id="t-option" name="board-type" value="bomb-burn">
-            <label for="t-option">BOMB & BURN</label>
+            <label for="t-option">Bomb & Burn</label>
             <div class="check"><div class="inside"></div></div>
           </li>
         </ul>
