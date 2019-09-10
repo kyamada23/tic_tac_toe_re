@@ -169,7 +169,7 @@ table td{
 }
 .rotate {
   display: inline-block;
-  animation: r1 2s linear infinite;
+  animation: r1 0.2s linear infinite;
   color:#0DFF92;
 }
 @keyframes r1 {
