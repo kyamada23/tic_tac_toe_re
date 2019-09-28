@@ -15,6 +15,6 @@ if(isset($_POST['turn']) && isset($_POST['square_array'])){
   $result['next_name'] = $_SESSION[$next_turn]->getIconName();
   $result['dance'] = $_SESSION[$turn]->victoryDance();
   echo json_encode($result);
-  exit;
+  exit();
 }
 ?>
