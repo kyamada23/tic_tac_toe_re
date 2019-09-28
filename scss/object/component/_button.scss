@@ -1,0 +1,24 @@
+/* ゲーム開始ボタン */
+.c-button {
+  margin-top: 8px;
+  margin-right: 20px;
+  float: right;
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 16pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : rgba(244, 245, 247, 0.1);     /* 背景色     */
+  color         : #aaaaaa;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  opacity       : 0.9;         /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+  &:hover {
+    opacity       : 1;           /* カーソル時透明度 */
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 14pt;
+  }
+}

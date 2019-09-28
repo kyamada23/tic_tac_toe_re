@@ -1,0 +1,11 @@
+#main {
+  margin: 0 auto;
+  .page-top {
+    &__title {
+      margin: $space_l;
+      font-size: $font-size_xxl;
+      text-align: center;
+      color: $font-color_default;
+    }
+  }
+}

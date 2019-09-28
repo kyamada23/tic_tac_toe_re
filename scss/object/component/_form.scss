@@ -1,0 +1,20 @@
+.c-form {
+  display: block;
+  position: relative;
+  margin: $space_xxl auto;
+  height: auto;
+  width: 640px;
+  padding: $space_m;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    margin: $space_l auto;
+  }
+
+  &__title {
+    color: #AAAAAA;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.4rem;
+    }
+  }
+}

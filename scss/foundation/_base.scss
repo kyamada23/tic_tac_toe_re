@@ -1,0 +1,29 @@
+// 変数
+$font-color_default: #AAAAAA;
+$color_main: #222222;
+// $color_sub1: #b6a489;
+
+$font-size_s: 12px;
+$font-size_m: 14px;
+$font-size_l: 18px;
+$font-size_xl: 24px;
+$font-size_xxl: 32px;
+$font-size_3l: 38px;
+
+$space_s: 8px;
+$space_m: 16px;
+$space_l: 24px;
+$space_xl: 32px;
+$space_xxl: 40px;
+
+body, html{
+  background: $color_main;
+  font-family: 'Lato', sans-serif;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
