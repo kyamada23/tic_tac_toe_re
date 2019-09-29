@@ -1,11 +1,11 @@
 /* ゲーム開始ボタン */
 .c-button {
   margin-top: 8px;
-  margin-right: 20px;
+  margin-right: $space_m;
   float: right;
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
-  font-size     : 16pt;        /* 文字サイズ */
+  font-size     : $font-size_l;        /* 文字サイズ */
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 12px 12px;   /* 余白       */
@@ -19,6 +19,9 @@
   }
 
   @include media-breakpoint-down(sm) {
-    font-size: 14pt;
+    margin-top: $space_s;
+    margin-right: $space_s;
+    font-size: $font-size_m;
+    padding: $space_s;
   }
 }

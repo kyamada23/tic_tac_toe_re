@@ -33,7 +33,7 @@ Class Board{
   }
 
   public function createBoard(){
-    echo '<table value="play">';
+    echo '<table class="p-board-table" value="play">';
     echo '  <tr style="border-left-style: hidden; border-top-style: hidden; border-right-style: hidden;">';
     echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
     echo '  <td class="js-click-square"><data class=""></data><i class=""></i></td>';
